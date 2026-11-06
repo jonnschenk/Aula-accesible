@@ -77,11 +77,11 @@ En modo demo no se necesita backend y la conversación permanece en memoria del 
 
 ## Cómo se hizo
 
-- **Versión original (hackathon):** Jonathan Martínez hizo el diseño UX/UI y el frontend; su equipo desarrolló el backend de la animación 3D.
-- **Versión 2:** Jonathan Martínez hizo el rediseño, el frontend, el backend y la integración con IA, con asistencia de Claude Code.
-- **Uso de Claude Code:** lo usé para generar y revisar código bajo mi dirección. Las decisiones de producto, diseño y accesibilidad son mías.
+- **Versión original (hackathon):** Jonathan Ramírez hizo el diseño UX/UI y el frontend; su equipo desarrolló el backend de la animación 3D. La animación cargó, pero solo de forma local, en la computadora donde corría el backend.
+- **Versión 2:** Jonathan Ramírez hizo el rediseño y el frontend, con asistencia de IA. Esta versión no tiene backend: la demo simula el dictado, la simplificación y las señas.
+- **Uso de IA:** partí de un diseño base en Claude Design, sobre el que hice el diseño final, y usé Claude para revisar y depurar el código y para integrar el backend y el frontend en la versión original. Las decisiones de producto, diseño y accesibilidad son mías.
 
-Autor: Jonathan Martínez · GitHub: [jonnschenk](https://github.com/jonnschenk)
+Autor: Jonathan Ramírez · GitHub: [jonnschenk](https://github.com/jonnschenk)
 
 ## Licencia
 
