@@ -76,11 +76,13 @@ Hay etiquetas para los campos, controles operables por teclado, foco visible, an
 
 En modo demo no se necesita backend y la conversación permanece en memoria del navegador; se pierde al recargar. El micrófono y la cámara requieren permiso. Al conectar el reconocimiento, los cuadros JPEG se envían al WebSocket configurado; el frontend no define la retención del servidor, que debe aclararse con el equipo responsable.
 
-## Equipo y autoría
+## Cómo se hizo
 
-- **Jonathan Martínez** — diseño UX/UI y frontend.
-- **Créditos:** equipo de backend e IA por la colaboración en el prototipo.
-- GitHub: [jonnschenk](https://github.com/jonnschenk)
+- **Versión original (hackathon):** Jonathan Martínez hizo el diseño UX/UI y el frontend; su equipo desarrolló el backend de la animación 3D.
+- **Versión 2:** Jonathan Martínez hizo el rediseño, el frontend, el backend y la integración con IA, con asistencia de Claude Code.
+- **Uso de Claude Code:** lo usé para generar y revisar código bajo mi dirección. Las decisiones de producto, diseño y accesibilidad son mías.
+
+Autor: Jonathan Martínez · GitHub: [jonnschenk](https://github.com/jonnschenk)
 
 ## Licencia
 
