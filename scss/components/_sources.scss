@@ -1,0 +1,110 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Página «Cómo funciona» · .feature-grid, .feature-card, .source-list, .data-grid
+// ==========================================================================
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: $space-4;
+}
+
+.feature-card {
+  padding: $space-8;
+  border-radius: $radius-xl;
+  background: $gris-50;
+
+  @include mobile { padding: $space-6; }
+}
+
+.feature-card__step {
+  margin-bottom: $space-3;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $acento;
+}
+
+.feature-card__title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-semibold;
+  letter-spacing: -0.02em;
+}
+
+.feature-card__text {
+  margin-top: $space-2;
+  color: $texto-2;
+}
+
+.feature-card__list {
+  display: grid;
+  gap: $space-2;
+  margin-top: $space-3;
+  padding-left: 1.1em;
+  color: $texto-2;
+}
+
+// Lista agrupada (estilo Ajustes)
+.source-list {
+  overflow: hidden;
+  border-radius: $radius-lg;
+  background: $gris-50;
+  list-style: none;
+}
+
+.source-list__item + .source-list__item {
+  border-top: 1px solid $gris-200;
+}
+
+.source-list__summary {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  min-height: 56px;
+  padding: $space-3 $space-5;
+  font-weight: $weight-medium;
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker { display: none; }
+
+  .badge { margin-left: auto; }
+
+  .icon {
+    color: $texto-2;
+    @include transition(transform);
+  }
+
+  details[open] > & .icon { transform: rotate(90deg); }
+}
+
+.source-list__summary--static { cursor: default; }
+
+.source-list__body {
+  padding: 0 $space-5 $space-5;
+}
+
+.source-list__note {
+  margin-top: $space-3;
+  font-size: $text-sm;
+  color: $texto-2;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: $space-3 $space-6;
+}
+
+.data-grid__term {
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $texto-2;
+}
+
+.data-grid__value {
+  margin: 0;
+  font-size: $text-sm;
+}

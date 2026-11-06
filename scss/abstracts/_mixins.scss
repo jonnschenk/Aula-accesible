@@ -1,0 +1,64 @@
+@use 'tokens' as *;
+
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+/// Escritorio con altura suficiente: la pantalla no hace scroll.
+@mixin desktop {
+  @media (min-width: $bp-desktop-w) and (min-height: $bp-desktop-h) { @content; }
+}
+
+/// Dos columnas (sin importar la altura).
+@mixin wide {
+  @media (min-width: $bp-desktop-w) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) { @content; }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}
+
+/// Anillo de foco visible y consistente.
+@mixin focus-ring($offset: 2px) {
+  outline: 3px solid rgba($acento, .55);
+  outline-offset: $offset;
+}
+
+@mixin reset-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/// Estado deshabilitado común a todos los controles.
+@mixin disabled {
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: .4;
+    cursor: not-allowed;
+  }
+}
+
+/// Transición estándar.
+@mixin transition($props...) {
+  transition-property: $props;
+  transition-duration: $duration;
+  transition-timing-function: $ease;
+}
+
+/// Etiqueta pequeña de sección.
+@mixin label {
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $texto-2;
+  letter-spacing: $tracking-label;
+}

@@ -1,0 +1,39 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Palabras clave · .terms
+// Tarjetas con la definición corta de las palabras difíciles.
+// ==========================================================================
+
+.terms {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.terms__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: $space-2;
+  list-style: none;
+}
+
+.terms__item {
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  background: $blanco;
+  box-shadow: $shadow-sm;
+}
+
+.terms__word {
+  font-weight: $weight-semibold;
+  line-height: 1.3;
+}
+
+.terms__definition {
+  margin-top: 2px;
+  font-size: $text-sm;
+  line-height: 1.4;
+  color: $texto-2;
+}

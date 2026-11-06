@@ -1,0 +1,72 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Controles de demostración · .demo
+// Ventana flotante con listas agrupadas, como un menú de Ajustes.
+// ==========================================================================
+
+.demo {
+  position: fixed;
+  top: calc(#{$header-height} + #{$space-2});
+  right: $space-4;
+  z-index: $z-demo;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  width: min(320px, calc(100vw - #{$space-8}));
+  max-height: calc(100vh - #{$header-height} - #{$space-6});
+  overflow-y: auto;
+  padding: $space-4;
+  border-radius: $radius-lg;
+  background: rgba($blanco, .92);
+  box-shadow: $shadow-lg;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.demo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.demo__title {
+  font-size: $text-base;
+  font-weight: $weight-semibold;
+}
+
+.demo__note {
+  font-size: $text-sm;
+  color: $texto-2;
+}
+
+.demo__group {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: $radius-md;
+  background: $gris-50;
+}
+
+.demo__action {
+  @include reset-button;
+  @include transition(background-color);
+  min-height: $control-height;
+  padding: 0 $space-4;
+  font-size: 15px;
+  text-align: left;
+
+  & + & { border-top: 1px solid $gris-200; }
+
+  &:hover { background: $gris-100; }
+}
+
+.demo__option {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $text-sm;
+
+  input { accent-color: $acento; width: 18px; height: 18px; }
+}

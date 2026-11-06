@@ -1,0 +1,19 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Etiqueta · .badge
+// ==========================================================================
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-2;
+  border-radius: $radius-pill;
+  background: $gris-100;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $texto-2;
+  letter-spacing: 0;
+  white-space: nowrap;
+}

@@ -1,0 +1,118 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Señas · experimental · .lab
+// Cámara pequeña + resultado que el alumno revisa antes de enviar.
+// ==========================================================================
+
+.lab {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-4;
+  border-radius: $radius-lg;
+  background: $blanco;
+  box-shadow: $shadow-sm;
+}
+
+.lab__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+}
+
+.lab__body {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) 1fr;
+  gap: $space-4;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.lab__camera {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: $radius-md;
+  background: $texto;
+  color: $gris-200;
+}
+
+.lab__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); // espejo, como al verse en una pantalla
+}
+
+.lab__view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-3;
+  font-size: $text-sm;
+  text-align: center;
+}
+
+.lab__view--live {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.lab__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: $radius-pill;
+  background: rgba($blanco, .16);
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $blanco;
+}
+
+.lab__side {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.lab__help {
+  font-size: $text-sm;
+  color: $texto-2;
+}
+
+.lab__result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: $space-3;
+  border-radius: $radius-md;
+  background: $gris-50;
+
+  .progress { align-self: stretch; }
+}
+
+.lab__result-label {
+  @include label;
+}
+
+.lab__result-text {
+  font-size: $text-lg;
+  font-weight: $weight-semibold;
+  line-height: 1.3;
+}
+
+.lab__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  margin-top: auto;
+}

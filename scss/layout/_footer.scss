@@ -1,0 +1,13 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Pie de página · .footer
+// ==========================================================================
+
+.footer {
+  flex: none;
+  padding-block: $space-3;
+  font-size: $text-xs;
+  color: $texto-2;
+}

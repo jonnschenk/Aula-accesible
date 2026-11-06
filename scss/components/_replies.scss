@@ -1,0 +1,38 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Respuestas rápidas · .replies
+// Un toque envía la frase al maestro.
+// ==========================================================================
+
+.replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  list-style: none;
+}
+
+.replies__button {
+  @include reset-button;
+  @include transition(background-color, box-shadow, color);
+  @include disabled;
+  min-height: 36px;
+  padding: 0 $space-4;
+  border-radius: $radius-pill;
+  background: $blanco;
+  box-shadow: inset 0 0 0 1px $gris-200;
+  font-size: 15px;
+  font-weight: $weight-medium;
+
+  &:hover:not(:disabled) {
+    box-shadow: inset 0 0 0 1px $gris-400;
+  }
+
+  // Confirmación breve al enviar
+  &[data-sent] {
+    background: $acento-tinte;
+    color: $acento;
+    box-shadow: inset 0 0 0 1px $acento;
+  }
+}

@@ -1,0 +1,68 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Panel · .panel (Alumno y Maestro)
+// Tarjeta gris clara sobre el fondo blanco.
+// ==========================================================================
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  min-width: 0;
+  padding: $space-6;
+  border-radius: $radius-xl;
+  background: $gris-50;
+
+  @include mobile {
+    gap: $space-4;
+    padding: $space-4;
+    border-radius: $radius-lg;
+  }
+
+  @include desktop {
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+.panel__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-3;
+}
+
+.panel__title {
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $weight-semibold;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.panel__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 20px;
+  margin-top: 2px;
+  font-size: $text-sm;
+  color: $texto-2;
+}
+
+.panel__tools {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.panel__footer {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: auto;
+}

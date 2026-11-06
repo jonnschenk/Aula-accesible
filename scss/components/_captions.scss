@@ -1,0 +1,97 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Subtítulos · .captions
+// Lo último que dijo el maestro, en grande. La línea anterior queda tenue.
+// ==========================================================================
+
+.captions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: $space-3;
+  min-height: 220px;
+  padding: $space-6;
+  border-radius: $radius-lg;
+  background: $blanco;
+  box-shadow: $shadow-sm;
+
+  @include mobile {
+    min-height: 180px;
+    padding: $space-5;
+  }
+
+  @include desktop {
+    flex: 1 1 auto;
+    min-height: 160px;
+    overflow-y: auto;
+  }
+}
+
+.captions__label {
+  @include label;
+  margin-bottom: auto; // empuja el texto hacia abajo, como subtítulos
+}
+
+.captions__previous {
+  font-size: $text-base;
+  line-height: 1.4;
+  color: $texto-2;
+}
+
+.captions__current {
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: $weight-semibold;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+
+  @include mobile { font-size: 26px; }
+}
+
+.captions__current--large {
+  font-size: $text-3xl;
+
+  @include mobile { font-size: 32px; }
+}
+
+// Estado vacío
+.captions__current--empty {
+  font-size: $text-lg;
+  font-weight: $weight-regular;
+  color: $texto-2;
+}
+
+// El maestro está hablando: cursor que parpadea al final
+.captions__current--live::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: .9em;
+  margin-left: 3px;
+  vertical-align: -0.08em;
+  background: $acento;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% { opacity: 0; }
+}
+
+// Animación experimental (solo si el servicio la entrega)
+.captions__video {
+  video {
+    width: 100%;
+    max-height: 260px;
+    border-radius: $radius-md;
+    background: $texto;
+  }
+}
+
+.captions__video-note {
+  margin-top: $space-2;
+  font-size: $text-xs;
+  color: $texto-2;
+}

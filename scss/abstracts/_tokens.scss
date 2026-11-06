@@ -1,0 +1,95 @@
+// ==========================================================================
+// Tokens de diseño · Aula Accesible v2
+// Estilo minimalista inspirado en la interfaz de Apple: fondo blanco,
+// grises neutros y un solo color de acento.
+//
+// Contraste (WCAG 2.2) · texto normal ≥ 4.5:1, componentes ≥ 3:1
+//   $texto   sobre blanco 16.8 · sobre $gris-50 15.5 · sobre $gris-100 13.8
+//   $texto-2 sobre blanco  6.0 · sobre $gris-50  5.5 · sobre $gris-100  4.9
+//   $acento  sobre blanco  5.6 · sobre $gris-50  5.1 · blanco sobre $acento 5.6
+//   $gris-400 (bordes de campos) sobre blanco 3.3 · sobre $gris-50 3.0
+// ==========================================================================
+
+// ---- Color ---------------------------------------------------------------
+$blanco:        #FFFFFF;
+$gris-50:       #F5F5F7;   // superficies y tarjetas
+$gris-100:      #E8E8ED;   // controles secundarios, pistas
+$gris-150:      #DEDEE3;   // hover de controles secundarios
+$gris-200:      #D2D2D7;   // separadores (decorativos)
+$gris-400:      #8E8E93;   // borde de campos y foco de controles
+$texto:         #1D1D1F;
+$texto-2:       #636366;
+$acento:        #0066CC;
+$acento-hover:  #0058B0;
+$acento-tinte:  #EAF2FC;   // fondo de selección (acento 4.9:1 encima)
+$acento-oscuro: #2997FF;   // acento sobre fondos oscuros ($texto): 5.6:1
+$exito:         #1E7B34;
+$aviso:         #B25000;
+$error:         #C9000F;
+
+// ---- Tipografía ------------------------------------------------------------
+// Fuente del sistema: SF Pro en dispositivos Apple, Segoe UI en Windows,
+// Roboto en Android. No se descarga ningún archivo.
+$font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+$font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+
+$text-xs:   12px;
+$text-sm:   14px;
+$text-base: 17px;
+$text-lg:   21px;
+$text-xl:   28px;
+$text-2xl:  32px;   // subtítulos
+$text-3xl:  42px;   // subtítulos con «Aa»
+$text-hero: 56px;
+
+$weight-regular:  400;
+$weight-medium:   500;
+$weight-semibold: 600;
+$weight-bold:     700;
+
+$tracking-tight: -0.022em;  // títulos grandes
+$tracking-label:  0.01em;
+
+// ---- Espacio ----------------------------------------------------------------
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
+$space-12: 48px;
+$space-16: 64px;
+
+// ---- Forma ------------------------------------------------------------------
+$radius-sm:   8px;
+$radius-md:   12px;
+$radius-lg:   18px;
+$radius-xl:   24px;
+$radius-pill: 980px;
+
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, .05), 0 2px 8px rgba(0, 0, 0, .04);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, .12), 0 2px 6px rgba(0, 0, 0, .06);
+
+$header-height: 52px;
+$control-height: 44px;     // área táctil mínima
+$control-height-sm: 32px;
+
+// ---- Movimiento --------------------------------------------------------------
+$ease: cubic-bezier(.25, .1, .25, 1);
+$duration: 200ms;
+$auto-send-ms: 1400ms;     // igual a CONFIG.AUTO_SEND_DELAY_MS
+
+// ---- Contenedor y puntos de quiebre --------------------------------------------
+$container-max: 1280px;
+$gutter: 24px;
+$gutter-mobile: 16px;
+
+$bp-mobile: 560px;
+$bp-desktop-w: 1000px;
+$bp-desktop-h: 640px;
+
+// ---- Capas ---------------------------------------------------------------------
+$z-header: 10;
+$z-toast: 30;
+$z-demo: 40;

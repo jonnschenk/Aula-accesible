@@ -1,0 +1,37 @@
+// ==========================================================================
+// Aula Accesible · hoja de estilos principal
+// Metodología BEM: .bloque, .bloque__elemento, .bloque--modificador
+// Los estados usan atributos ARIA ([aria-pressed], [aria-current], [hidden]).
+//
+// Compilar:  sass scss/main.scss css/main.css --style=compressed --source-map
+// ==========================================================================
+
+// 1. Base
+@use 'base/reset';
+@use 'base/base';
+@use 'base/a11y';
+
+// 2. Estructura
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/live';
+@use 'layout/content';
+
+// 3. Componentes genéricos
+@use 'components/button';
+@use 'components/segmented';
+@use 'components/badge';
+@use 'components/feedback';
+
+// 4. Componentes de la clase
+@use 'components/panel';
+@use 'components/captions';
+@use 'components/terms';
+@use 'components/replies';
+@use 'components/composer';
+@use 'components/conversation';
+@use 'components/lab';
+
+// 5. Otras páginas y demo
+@use 'components/sources';
+@use 'components/demo';

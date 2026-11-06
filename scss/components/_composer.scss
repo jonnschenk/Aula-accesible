@@ -1,0 +1,107 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Campo de mensaje · .composer
+// Una línea que crece con el texto, con botones redondos dentro
+// (como el campo de Mensajes). Lo usan el maestro y el alumno.
+// ==========================================================================
+
+.composer {
+  @include transition(border-color, box-shadow);
+  display: flex;
+  align-items: flex-end;
+  gap: $space-1;
+  padding: 5px 5px 5px $space-4;
+  border: 1px solid $gris-400;
+  border-radius: 22px;
+  background: $blanco;
+
+  &:focus-within {
+    border-color: $acento;
+    box-shadow: 0 0 0 3px rgba($acento, .2);
+  }
+}
+
+.composer--listening {
+  border-color: $error;
+  box-shadow: 0 0 0 3px rgba($error, .15);
+}
+
+.composer--invalid { border-color: $error; }
+
+.composer__input {
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  max-height: 160px;
+  padding: 6px 0;
+  overflow-y: auto;
+  border: 0;
+  background: transparent;
+  font-size: $text-base;
+  line-height: 20px;
+  resize: none;
+
+  &::placeholder {
+    overflow: hidden;
+    color: $texto-2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &:focus { outline: none; } // el foco se muestra en .composer
+}
+
+// Botón secundario dentro del campo (micrófono, señas)
+.composer__button {
+  @include reset-button;
+  @include transition(background-color, color);
+  @include disabled;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: $texto-2;
+
+  &:hover:not(:disabled) {
+    background: $gris-100;
+    color: $texto;
+  }
+
+  // Activo: grabando (micrófono) o abierto (señas)
+  &[aria-pressed='true'] {
+    background: $error;
+    color: $blanco;
+  }
+
+  &[data-action='toggle-lab'][aria-pressed='true'] {
+    background: $texto;
+  }
+}
+
+// Enviar: círculo azul; gris mientras no hay texto
+.composer__send {
+  @include reset-button;
+  @include transition(background-color, color);
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: $acento;
+  color: $blanco;
+
+  .icon { stroke-width: 2.25; }
+
+  &:hover:not(:disabled) { background: $acento-hover; }
+
+  &:disabled {
+    background: $gris-100;
+    color: $texto-2;
+    cursor: not-allowed;
+  }
+}

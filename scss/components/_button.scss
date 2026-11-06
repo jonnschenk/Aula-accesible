@@ -1,0 +1,82 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Botón · .button
+// Píldora redondeada. Variantes: --primary, --secondary, --plain, --ghost
+// Tamaños: --sm · Forma: --icon (cuadrado/círculo)
+// ==========================================================================
+
+.button {
+  @include reset-button;
+  @include transition(background-color, color, opacity, box-shadow);
+  @include disabled;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: $control-height;
+  padding: 0 $space-5;
+  border-radius: $radius-pill;
+  font-size: 15px;
+  font-weight: $weight-medium;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+// Acción principal: una por zona
+.button--primary {
+  background: $acento;
+  color: $blanco;
+
+  &:hover:not(:disabled) { background: $acento-hover; }
+}
+
+// Acción secundaria con fondo gris
+.button--secondary {
+  background: $gris-100;
+  color: $texto;
+
+  &:hover:not(:disabled) { background: $gris-150; }
+
+  // Interruptores (p. ej. «Aa»): activo = oscuro
+  &[aria-pressed='true'] {
+    background: $texto;
+    color: $blanco;
+  }
+}
+
+// Texto en color de acento, sin fondo
+.button--plain {
+  min-height: $control-height-sm;
+  padding: 0 $space-2;
+  color: $acento;
+
+  &:hover:not(:disabled) { opacity: .75; }
+}
+
+// Ícono o texto neutro sin fondo
+.button--ghost {
+  color: $texto-2;
+
+  &:hover:not(:disabled) {
+    background: $gris-100;
+    color: $texto;
+  }
+}
+
+.button--sm {
+  min-height: $control-height-sm;
+  padding-inline: 14px;
+  font-size: $text-sm;
+}
+
+.button--icon {
+  width: $control-height-sm;
+  min-height: $control-height-sm;
+  padding: 0;
+  font-weight: $weight-semibold;
+}
+
+.button--plain.button--sm { padding-inline: $space-2; }

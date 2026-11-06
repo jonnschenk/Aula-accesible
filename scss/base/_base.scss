@@ -1,0 +1,83 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Base · página, contenedor, íconos
+// ==========================================================================
+
+html {
+  scroll-behavior: smooth;
+
+  @include reduced-motion { scroll-behavior: auto; }
+}
+
+body {
+  font-family: $font;
+  font-size: $text-base;
+  line-height: 1.47;
+  letter-spacing: -0.01em;
+  color: $texto;
+  background: $blanco;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $acento;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+// Página de la clase: en escritorio ocupa exactamente la ventana
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  @include desktop {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
+
+// Páginas de lectura: siempre con scroll
+.page--scroll {
+  @include desktop {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $gutter;
+
+  @include mobile { padding-inline: $gutter-mobile; }
+}
+
+.icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--sm { width: 16px; height: 16px; }
+.icon--lg { width: 28px; height: 28px; stroke-width: 1.5; }
+
+// Etiqueta de sección compartida
+.section-label {
+  @include label;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}

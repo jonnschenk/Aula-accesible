@@ -1,0 +1,67 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Páginas de lectura · .content
+// ==========================================================================
+
+.content {
+  padding-block: $space-16 $space-16;
+
+  @include mobile { padding-block: $space-8; }
+}
+
+.content__head {
+  max-width: 760px;
+  margin-bottom: $space-12;
+}
+
+.content__eyebrow {
+  margin-bottom: $space-2;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  color: $acento;
+}
+
+.content__title {
+  font-family: $font-display;
+  font-size: $text-hero;
+  font-weight: $weight-bold;
+  line-height: 1.07;
+  letter-spacing: $tracking-tight;
+
+  @include mobile { font-size: 36px; }
+}
+
+.content__lead {
+  margin-top: $space-5;
+  font-size: $text-lg;
+  line-height: 1.4;
+  color: $texto-2;
+}
+
+.content__section {
+  margin-top: $space-16;
+
+  @include mobile { margin-top: $space-12; }
+}
+
+.content__section-title {
+  margin-bottom: $space-2;
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $weight-semibold;
+  letter-spacing: $tracking-tight;
+}
+
+.content__intro {
+  max-width: 680px;
+  margin-bottom: $space-6;
+  color: $texto-2;
+}
+
+.content__note {
+  margin-top: $space-8;
+  font-size: $text-sm;
+  color: $texto-2;
+}

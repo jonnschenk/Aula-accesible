@@ -1,0 +1,113 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Mensajes de estado · .hint, .banner, .toast, .pulse, .progress
+// El estado nunca depende solo del color: siempre lleva texto.
+// ==========================================================================
+
+// ---- Pista breve bajo un control -------------------------------------------------
+.hint-stack:empty { display: none; }
+
+.hint-stack {
+  display: grid;
+  gap: $space-1;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: $text-sm;
+  color: $texto-2;
+}
+
+.hint--warn { color: $aviso; }
+.hint--error { color: $error; }
+
+// ---- Franja de aviso -----------------------------------------------------------
+.banner {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-2 $space-3 $space-2 $space-4;
+  border-radius: $radius-md;
+  background: $gris-50;
+  color: $aviso;
+}
+
+.banner__text {
+  flex: 1;
+  font-size: $text-sm;
+  color: $texto;
+}
+
+// ---- Mensaje temporal (estilo HUD) ------------------------------------------------
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: $space-6;
+  z-index: $z-toast;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  max-width: calc(100vw - #{$space-8});
+  padding: 6px 6px 6px $space-4;
+  border-radius: $radius-pill;
+  background: rgba($texto, .92);
+  color: $blanco;
+  box-shadow: $shadow-lg;
+  transform: translateX(-50%);
+  animation: toast-in 240ms $ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  .button--plain { color: $acento-oscuro; }
+  .button--ghost { color: $gris-200; }
+  .button--ghost:hover { background: rgba($blanco, .12); color: $blanco; }
+}
+
+.toast--warn .icon { color: #FFB340; } // 9.6:1 sobre $texto
+
+.toast__text { font-size: $text-sm; }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+}
+
+// ---- Punto que late (alguien está hablando o señando) ------------------------------
+.pulse {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $acento;
+  animation: pulse 1.2s $ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
+
+// ---- Barra de tiempo antes del envío automático -------------------------------------
+.progress {
+  height: 3px;
+  overflow: hidden;
+  border-radius: $radius-pill;
+  background: $gris-100;
+}
+
+.progress__bar {
+  display: block;
+  height: 100%;
+  background: $acento;
+  transform-origin: left;
+  animation: progress-fill $auto-send-ms linear forwards;
+}
+
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}

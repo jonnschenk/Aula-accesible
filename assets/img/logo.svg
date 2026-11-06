@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aula Accesible">
+  <title>Aula Accesible</title>
+  <rect width="64" height="64" rx="15" fill="#1D1D1F"/>
+  <g transform="translate(1.5 0)" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 50V31a11.5 11.5 0 0 1 23 0v19" stroke="#FFFFFF"/>
+    <path d="M10 39h30c6.5 0 10.5-4.5 10.5-11v-4" stroke="#2997FF"/>
+    <circle cx="50.5" cy="15.5" r="3.6" fill="#2997FF" stroke="none"/>
+  </g>
+</svg>

@@ -1,0 +1,101 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Conversación · .conversation, .message
+// Burbujas: maestro a la derecha (azul), alumno a la izquierda (blanco).
+// ==========================================================================
+
+.conversation {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  min-height: 240px;
+  list-style: none;
+
+  @include desktop {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    margin-inline: -$space-2;
+    padding-inline: $space-2;
+  }
+}
+
+.conversation__empty {
+  margin: auto;
+  max-width: 280px;
+  font-size: $text-base;
+  color: $texto-2;
+  text-align: center;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 82%;
+}
+
+.message__bubble {
+  padding: 10px $space-4;
+  border-radius: $radius-lg;
+  line-height: 1.38;
+  overflow-wrap: anywhere;
+}
+
+.message__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-inline: $space-2;
+  font-size: $text-xs;
+  color: $texto-2;
+}
+
+// Maestro
+.message--maestro {
+  align-self: flex-end;
+  align-items: flex-end;
+
+  .message__bubble {
+    border-bottom-right-radius: 6px;
+    background: $acento;
+    color: $blanco;
+  }
+}
+
+// Alumno
+.message--alumno {
+  align-self: flex-start;
+
+  .message__bubble {
+    border-bottom-left-radius: 6px;
+    background: $blanco;
+    box-shadow: $shadow-sm;
+  }
+}
+
+// Mientras el alumno seña (aún no se envía)
+.message--interim .message__bubble {
+  color: $texto-2;
+  box-shadow: inset 0 0 0 1px $gris-200;
+}
+
+// Aviso del sistema
+.message--system {
+  align-self: center;
+  max-width: 90%;
+
+  .message__bubble {
+    padding: $space-1 $space-3;
+    border-radius: $radius-pill;
+    background: $gris-100;
+    font-size: $text-sm;
+    color: $texto-2;
+    text-align: center;
+  }
+}
+
+.message__meta--error { color: $error; }

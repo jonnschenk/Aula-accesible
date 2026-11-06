@@ -1,0 +1,72 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// Cabecera · .header, .brand, .nav
+// Barra translúcida con desenfoque, como la navegación de Apple.
+// ==========================================================================
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  flex: none;
+  border-bottom: 1px solid rgba($texto, .08);
+  background: rgba($blanco, .8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+  min-height: $header-height;
+
+  @include mobile { gap: $space-2; }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: $texto;
+
+  &:hover { text-decoration: none; }
+}
+
+.brand__logo { border-radius: 7px; }
+
+.brand__name {
+  font-size: $text-base;
+  font-weight: $weight-semibold;
+  letter-spacing: -0.02em;
+
+  @include mobile { display: none; } // en móvil basta el logo (el enlace tiene aria-label)
+}
+
+.nav {
+  display: flex;
+  gap: $space-1;
+  margin-left: auto;
+}
+
+.nav__link {
+  padding: 6px $space-3;
+  border-radius: $radius-pill;
+  font-size: $text-sm;
+  color: $texto-2;
+  white-space: nowrap;
+  @include transition(color, background-color);
+
+  &:hover {
+    color: $texto;
+    text-decoration: none;
+  }
+
+  &[aria-current='page'] {
+    color: $texto;
+    font-weight: $weight-semibold;
+    background: $gris-50;
+  }
+}
