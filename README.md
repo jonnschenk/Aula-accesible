@@ -1,37 +1,36 @@
-# Aula Accesible v2
+# Aula Accesible · Frontend (v2)
 
-Prototipo frontend para que un alumno sordo siga la clase con subtítulos en español sencillo, palabras clave y respuestas rápidas. **Demo en vivo:** [URL_DEMO]
+**Demo en vivo:** [jonnschenk.github.io/Aula-accesible](https://jonnschenk.github.io/Aula-accesible/)
 
-![Captura de pantalla de Aula Accesible](docs/captura.png)
+Una sola pantalla compartida para que un **alumno sordo** no se quede fuera de la clase.
 
-## El problema y la solución
+- **Maestro → Alumno:** el maestro escribe o dicta. El alumno ve **subtítulos en vivo en español sencillo** y **palabras clave** con una definición corta.
+- **Alumno → Maestro:** el alumno responde con **respuestas rápidas** («No entendí», «Más despacio»…) o escribiendo.
+- **Experimental:** responder con señas (solo el vocabulario de las respuestas rápidas) y, si el backend la entrega, una animación en señas. Ninguna se presenta como traducción validada.
 
-En una clase, un alumno sordo puede perder información cuando la explicación solo se da de forma oral.
-Aula Accesible reúne en una pantalla lo que dice el maestro y una forma sencilla de responder.
-El alumno puede leer subtítulos simplificados, consultar palabras clave y enviar respuestas rápidas.
-Es un prototipo: no sustituye a un intérprete ni a una herramienta de accesibilidad validada.
+> Prototipo para el AI Hackathon por México × Clara. La v1 dependía de una animación 3D en LSM; la v2 funciona solo con texto y suma las señas como apoyo.
 
-## Qué incluye
+Tecnologías: HTML, Sass con BEM y JavaScript nativo con módulos ES. No usa frameworks. El único paso de compilación es Sass.
 
-- **Subtítulos:** el maestro escribe o dicta; el alumno puede elegir texto sencillo u original y aumentar su tamaño.
-- **Palabras clave:** definiciones breves para el vocabulario de la explicación.
-- **Respuestas:** opciones rápidas y un campo de texto para el alumno.
-- **Demo simulada:** clase de ejemplo, dictado, respuesta con señas, fallos de simplificación y estados de conexión.
-- **Experimental:** reconocimiento de un conjunto reducido de respuestas con señas y animación opcional del backend. No son traducción validada de Lengua de Señas Mexicana (LSM).
+---
 
-La demo funciona sin backend con `DEMO_MODE: true`. En ese modo, las funciones señaladas como simuladas no procesan voz ni video reales.
+## 1. Cómo correrlo
 
-## Ejecutar y compilar
-
-Se necesita Python 3 para servir el sitio localmente:
+Los módulos ES no funcionan con `file://`. Sirve la carpeta por HTTP:
 
 ```bash
-python3 -m http.server 8000
+cd frontend
+python -m http.server 8000
+# abrir http://localhost:8000
 ```
 
-Abre <http://localhost:8000>. No abras `index.html` con `file://`: la app usa módulos ES. Para usar micrófono o cámara, el navegador requiere `localhost` o HTTPS y permiso del usuario.
+El micrófono y la cámara solo funcionan en `localhost` o con HTTPS. El dictado real usa la Web Speech API (Chrome o Edge).
 
-Para compilar Sass, instala Dart Sass si aún no está disponible y ejecuta:
+En modo demo, el botón **Demo** de la cabecera simula una clase, el dictado, las señas y los errores.
+
+### Compilar estilos
+
+`css/main.css` ya viene compilado. Para recompilarlo después de editar el Sass:
 
 ```bash
 npm install --global sass
